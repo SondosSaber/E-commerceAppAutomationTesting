@@ -16,4 +16,8 @@ public class LoginPage {
     public WebElement loginBtn(WebDriver driver){
         return driver.findElement(By.xpath("//button[@type='submit' and text()='Log in']"));
     }
+
+    public WebElement forgotPasswordBtn(WebDriver driver){
+        return driver.findElement(By.xpath("//a[text()='Forgot password?']"));
+    }
 }
