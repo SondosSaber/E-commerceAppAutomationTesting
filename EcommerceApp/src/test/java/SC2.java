@@ -17,8 +17,8 @@ public class SC2 {
         driver.findElement(By.xpath("//button[@type='submit' and text()='Log in']")).click();
 
         //assert
-        //driver.findElement(By.xpath("a[@class='ico-logout' and text()='Log out']"))
+        driver.findElement(By.xpath("//a[@class='ico-logout']")).isEnabled();
 
-//        driver.quit();
+        driver.quit();
     }
 }
