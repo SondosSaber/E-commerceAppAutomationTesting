@@ -1,18 +1,27 @@
+package RegistrationFeature;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.asserts.Assertion;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
-public class SC1 {
-    public static void main(String[] args) throws InterruptedException {
+public class RegisterTest {
+    WebDriver driver;
+
+    @BeforeTest
+    public void openBrowser() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
-//        System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver2.exe");
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
 
         driver.navigate().to("https://demo.nopcommerce.com/");
         driver.manage().window().maximize();
         Thread.sleep(3000);
+    }
 
+    @Test
+    public void registerNewUser() throws InterruptedException {
         driver.findElement(By.xpath("//a[text()='Register']")).click();
         Thread.sleep(3000);
         driver.findElement(By.id("FirstName")).sendKeys("Sondos");
@@ -23,9 +32,12 @@ public class SC1 {
         driver.findElement(By.id("register-button")).click();
 
         //assert
-        //driver.findElement(By.xpath("//div[@class='result' and text()='Your registration completed']"))
-        String actualResult = driver.findElement(By.xpath("//div[@class='result' and text()='Your registration completed']")).getText();
+        String actualResult = driver.findElement(By.xpath("//div[@class='result']")).getText();
         assert actualResult.equals("Your registration completed");
+    }
+
+    @AfterTest
+    public void closeBrowser(){
         driver.quit();
     }
 }
