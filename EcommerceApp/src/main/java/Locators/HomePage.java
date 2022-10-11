@@ -25,12 +25,7 @@ public class HomePage {
         return driver.findElement(By.id("customerCurrency"));
     }
 
-    public String getEuroCurrency(WebDriver driver){
-        Select dropDown = new Select(driver.findElement(By.id("customerCurrency")));
-        String currency = "Euro";
-        dropDown.selectByValue(currency);
-
-        String selectedCurrency = dropDown.getAllSelectedOptions().toString();
-        return selectedCurrency;
+    public WebElement euroCurrecny(WebDriver driver){
+        return driver.findElement(By.xpath("//option[contains(text(),'Euro')"));
     }
 }
