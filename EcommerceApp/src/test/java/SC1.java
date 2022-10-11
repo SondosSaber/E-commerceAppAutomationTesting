@@ -9,6 +9,7 @@ public class SC1 {
 
         driver.navigate().to("https://demo.nopcommerce.com/");
         driver.manage().window().maximize();
+        Thread.sleep(3000);
 
         driver.findElement(By.xpath("//a[text()='Register']")).click();
         Thread.sleep(3000);
