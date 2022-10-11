@@ -1,11 +1,12 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.asserts.Assertion;
 
 public class SC1 {
     public static void main(String[] args) throws InterruptedException {
-//        System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver2.exe");
+        System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
+//        System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver2.exe");
         WebDriver driver = new ChromeDriver();
 
         driver.navigate().to("https://demo.nopcommerce.com/");
@@ -25,7 +26,6 @@ public class SC1 {
         //driver.findElement(By.xpath("//div[@class='result' and text()='Your registration completed']"))
         String actualResult = driver.findElement(By.xpath("//div[@class='result' and text()='Your registration completed']")).getText();
         assert actualResult.equals("Your registration completed");
-
         driver.quit();
     }
 }
