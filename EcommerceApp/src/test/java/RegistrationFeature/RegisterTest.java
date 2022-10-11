@@ -1,7 +1,10 @@
 package RegistrationFeature;
 
+import Locators.HomePage;
+import Locators.RegisterationPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -10,7 +13,8 @@ import org.testng.annotations.Test;
 
 public class RegisterTest {
     WebDriver driver;
-
+    HomePage homePage = new HomePage();
+    RegisterationPage registerationPage = new RegisterationPage();
     @BeforeTest
     public void openBrowser() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
@@ -23,14 +27,14 @@ public class RegisterTest {
 
     @Test
     public void registerNewUser() throws InterruptedException {
-        driver.findElement(By.xpath("//a[text()='Register']")).click();
+        homePage.registerButton(driver).click();
         Thread.sleep(3000);
-        driver.findElement(By.id("FirstName")).sendKeys("Sondos");
-        driver.findElement(By.id("LastName")).sendKeys("Saber");
-        driver.findElement(By.id("Email")).sendKeys("automate1@test.com");
-        driver.findElement(By.id("Password")).sendKeys("123456");
-        driver.findElement(By.id("ConfirmPassword")).sendKeys("123456");
-        driver.findElement(By.id("register-button")).click();
+        registerationPage.userNameField(driver).sendKeys("Sondos");
+        registerationPage.lastNameField(driver).sendKeys("Saber");
+        registerationPage.emailField(driver).sendKeys("automate1@test.com");
+        registerationPage.passwordField(driver).sendKeys("123456");
+        registerationPage.confirmPasswordField(driver).sendKeys("123456");
+        registerationPage.registerButtonConfirmationBtn(driver).click();
         Thread.sleep(3000);
 
         String actualResult = driver.findElement(By.xpath("//div[@class='result']")).getText();
