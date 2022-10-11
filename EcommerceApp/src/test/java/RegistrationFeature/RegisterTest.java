@@ -3,6 +3,7 @@ package RegistrationFeature;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -26,14 +27,15 @@ public class RegisterTest {
         Thread.sleep(3000);
         driver.findElement(By.id("FirstName")).sendKeys("Sondos");
         driver.findElement(By.id("LastName")).sendKeys("Saber");
-        driver.findElement(By.id("Email")).sendKeys("automate@test.com");
+        driver.findElement(By.id("Email")).sendKeys("automate1@test.com");
         driver.findElement(By.id("Password")).sendKeys("123456");
         driver.findElement(By.id("ConfirmPassword")).sendKeys("123456");
         driver.findElement(By.id("register-button")).click();
+        Thread.sleep(3000);
 
-        //assert
         String actualResult = driver.findElement(By.xpath("//div[@class='result']")).getText();
-        assert actualResult.equals("Your registration completed");
+        String expectedResult ="Your registration completed";
+        Assert.assertEquals(actualResult,expectedResult);
     }
 
     @AfterTest
