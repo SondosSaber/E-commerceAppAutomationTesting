@@ -28,4 +28,12 @@ public class HomePage {
     public WebElement euroCurrecny(WebDriver driver){
         return driver.findElement(By.xpath("//option[contains(text(),'Euro')"));
     }
+
+    public WebElement computerCategory(WebDriver driver){
+        return driver.findElement(By.xpath("//button[@type='submit' and text()='Log in']"));
+    }
+
+    public WebElement computeSubcategory(WebDriver driver){
+        return driver.findElement(By.xpath("//ul[@class='top-menu notmobile']//li//a[contains(text(),'Computers ')]"));
+    }
 }

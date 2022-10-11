@@ -1,20 +1,20 @@
-package SearchFeature;
+package CategoriesFeature;
 
-import Locators.CustomerPage;
 import Locators.HomePage;
 import Locators.LoginPage;
+import Locators.RegisterationPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class SearchForProductTest {
+public class SelectCategoryTest {
     WebDriver driver;
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
-    CustomerPage customerPage = new CustomerPage();
     @BeforeTest
     public void openBrowser() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
@@ -25,19 +25,15 @@ public class SearchForProductTest {
         Thread.sleep(3000);
     }
     @Test
-    public void searchForProductTest() throws InterruptedException {
+    public void selectCategories() throws InterruptedException {
         homePage.loginButton(driver).click();
         loginPage.email(driver).sendKeys("sondossaber2495@gmail.com");
         loginPage.password(driver).sendKeys("123456");
         loginPage.loginBtn(driver).click();
         Thread.sleep(5000);
 
-
-        driver.findElement(By.xpath("//button[@type='submit' and text()='Log in']")).click();
-        driver.findElement(By.xpath("//ul[@class='top-menu notmobile']//li//a[contains(text(),'Computers ')]")).click();
-
-        //assert
-        //driver.findElement(By.xpath("//button[@type='button' and text()='Add to cart']"))
+        homePage.computerCategory(driver).click();
+        homePage.computeSubcategory(driver).click();
     }
     @AfterTest
     public void closeBrowser(){
