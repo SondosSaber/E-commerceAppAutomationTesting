@@ -10,5 +10,4 @@ public class HomePage {
         WebElement registerButton = driver.findElement(register);
         return registerButton;
     }
-
 }
