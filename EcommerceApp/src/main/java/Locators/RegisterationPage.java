@@ -6,8 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class RegisterationPage {
     public WebElement userNameField(WebDriver driver){
-        WebElement firstNameEle = driver.findElement(By.id("FirstName"));
-        return firstNameEle;
+        return driver.findElement(By.id("FirstName"));
     }
 
     public WebElement lastNameField(WebDriver driver){
