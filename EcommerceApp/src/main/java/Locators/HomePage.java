@@ -10,4 +10,8 @@ public class HomePage {
         WebElement registerButton = driver.findElement(register);
         return registerButton;
     }
+
+    public WebElement loginButton(WebDriver driver){
+       return driver.findElement(By.xpath("//a[text()='Log in']"));
+    }
 }
