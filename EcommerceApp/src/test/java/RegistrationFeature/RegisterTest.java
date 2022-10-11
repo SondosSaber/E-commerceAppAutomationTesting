@@ -24,7 +24,6 @@ public class RegisterTest {
         driver.manage().window().maximize();
         Thread.sleep(3000);
     }
-
     @Test
     public void registerNewUser() throws InterruptedException {
         homePage.registerButton(driver).click();
