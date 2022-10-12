@@ -22,6 +22,9 @@ public class CustomerPage {
     public WebElement addToCompareList(WebDriver driver){
         return driver.findElement(By.xpath("//button[@title='Add to compare list']"));
     }
+    public WebElement shoppingCart(WebDriver driver){
+        return driver.findElement(By.xpath("//span[@class='cart-label']"));
+    }
 
     //actions
     public void searchForProduct(WebDriver driver, String serachedItem){
@@ -39,5 +42,9 @@ public class CustomerPage {
 
     public void addItemToCompareList(WebDriver driver){
         addToCompareList(driver).click();
+    }
+
+    public void navigateToShoppingCart(WebDriver driver){
+        shoppingCart(driver).click();
     }
 }
