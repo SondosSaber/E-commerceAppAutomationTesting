@@ -13,10 +13,17 @@ public class CustomerPage {
     public WebElement searchBtn (WebDriver driver){
         return driver.findElement(By.xpath("//button[@type='submit' and text()='Search']"));
     }
+    public WebElement addToCartBtn(WebDriver driver){
+        return driver.findElement(By.xpath("//button[@type='button' and text()='Add to cart']"));
+    }
 
     //actions
     public void searchForProduct(WebDriver driver, String serachedItem){
         searchBox(driver).sendKeys(serachedItem);
         searchBtn(driver).click();
+    }
+
+    public void addItemToCart(WebDriver driver){
+        addToCartBtn(driver).click();
     }
 }
