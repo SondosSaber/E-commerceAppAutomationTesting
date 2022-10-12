@@ -19,6 +19,9 @@ public class CustomerPage {
     public WebElement addToWhiteList(WebDriver driver){
         return driver.findElement(By.xpath("//button[@title='Add to wishlist']"));
     }
+    public WebElement addToCompareList(WebDriver driver){
+        return driver.findElement(By.xpath("//button[@title='Add to compare list']"));
+    }
 
     //actions
     public void searchForProduct(WebDriver driver, String serachedItem){
@@ -32,5 +35,9 @@ public class CustomerPage {
 
     public void addItemToWhiteList(WebDriver driver){
         addToWhiteList(driver).click();
+    }
+
+    public void addItemToCompareList(WebDriver driver){
+        addToCompareList(driver).click();
     }
 }
