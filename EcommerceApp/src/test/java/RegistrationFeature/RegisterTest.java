@@ -1,10 +1,9 @@
 package RegistrationFeature;
 
-import Locators.HomePage;
-import Locators.RegisterationPage;
+import LocatorsAndActions.HomePage;
+import LocatorsAndActions.RegisterationPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -15,25 +14,13 @@ public class RegisterTest {
     WebDriver driver;
     HomePage homePage = new HomePage();
     RegisterationPage registerationPage = new RegisterationPage();
-    @BeforeTest
-    public void openBrowser() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
-        driver = new ChromeDriver();
-
-        driver.navigate().to("https://demo.nopcommerce.com/");
-        driver.manage().window().maximize();
-        Thread.sleep(3000);
-    }
     @Test
     public void registerNewUser() throws InterruptedException {
-        homePage.registerButton(driver).click();
+        homePage.openBrowser(driver);
+        homePage.navigateToRegisterPage(driver);
         Thread.sleep(3000);
-        registerationPage.userNameField(driver).sendKeys("Sondos");
-        registerationPage.lastNameField(driver).sendKeys("Saber");
-        registerationPage.emailField(driver).sendKeys("automate1@test.com");
-        registerationPage.passwordField(driver).sendKeys("123456");
-        registerationPage.confirmPasswordField(driver).sendKeys("123456");
-        registerationPage.registerButtonConfirmationBtn(driver).click();
+        registerationPage.performRegister(driver, "Sondos", "Saber", "automate1@test.com",
+                "123456", "123456");
         Thread.sleep(3000);
 
         String actualResult = driver.findElement(By.xpath("//div[@class='result']")).getText();

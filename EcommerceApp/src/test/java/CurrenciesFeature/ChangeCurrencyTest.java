@@ -1,8 +1,7 @@
 package CurrenciesFeature;
 
-import Locators.HomePage;
-import Locators.LoginPage;
-import org.openqa.selenium.By;
+import LocatorsAndActions.HomePage;
+import LocatorsAndActions.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
@@ -14,24 +13,10 @@ public class ChangeCurrencyTest {
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
 
-    @BeforeTest
-    public void openBrowser() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
-        driver = new ChromeDriver();
-
-        driver.navigate().to("https://demo.nopcommerce.com/");
-        driver.manage().window().maximize();
-        Thread.sleep(3000);
-    }
     @Test
     public void invalidLoginTest() throws InterruptedException {
-//        homePage.loginButton(driver).click();
-//        loginPage.email(driver).sendKeys("automate@test.com");
-//        loginPage.password(driver).sendKeys("123456");
-//        loginPage.loginBtn(driver).click();
-        homePage.currencyDropDownMenu(driver).click();
-        Thread.sleep(3000);
-        homePage.euroCurrecny(driver).click();
+        homePage.openBrowser(driver);
+        homePage.changeCurrency(driver);
         Thread.sleep(3000);
         //assert
         //driver.findElement(By.xpath("//*[contains(text(),'€')]"))

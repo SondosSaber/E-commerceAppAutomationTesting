@@ -1,8 +1,8 @@
 package SearchFeature;
 
-import Locators.CustomerPage;
-import Locators.HomePage;
-import Locators.LoginPage;
+import LocatorsAndActions.CustomerPage;
+import LocatorsAndActions.HomePage;
+import LocatorsAndActions.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,27 +15,14 @@ public class SearchForProductTest {
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
     CustomerPage customerPage = new CustomerPage();
-    @BeforeTest
-    public void openBrowser() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
-        driver = new ChromeDriver();
 
-        driver.navigate().to("https://demo.nopcommerce.com/");
-        driver.manage().window().maximize();
-        Thread.sleep(3000);
-    }
     @Test
     public void searchForProductTest() throws InterruptedException {
-        homePage.loginButton(driver).click();
-        loginPage.email(driver).sendKeys("sondossaber2495@gmail.com");
-        loginPage.password(driver).sendKeys("123456");
-        loginPage.loginBtn(driver).click();
+        homePage.openBrowser(driver);
+        homePage.navigateToLoginPage(driver);
+        loginPage.performLogin(driver, "sondossaber2495@gmail.com", "123456");
         Thread.sleep(5000);
-
-
-        driver.findElement(By.xpath("//button[@type='submit' and text()='Log in']")).click();
-        driver.findElement(By.xpath("//ul[@class='top-menu notmobile']//li//a[contains(text(),'Computers ')]")).click();
-
+        customerPage.searchForProduct(driver, "Nokia");
         //assert
         //driver.findElement(By.xpath("//button[@type='button' and text()='Add to cart']"))
     }
