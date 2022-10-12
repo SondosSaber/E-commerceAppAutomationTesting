@@ -34,7 +34,6 @@ public class HomePage {
         return driver.findElement(By.xpath("//ul[@class='top-menu notmobile']//li//a[contains(text(),'Computers ')]"));
     }
 
-
     //actions
     public void openBrowser(WebDriver driver) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
