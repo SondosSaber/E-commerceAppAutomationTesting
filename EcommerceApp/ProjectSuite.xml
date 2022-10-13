@@ -4,6 +4,15 @@
     <test name="Project E-commerce" >
         <classes>
             <class name="RegistrationFeature.RegisterTest" />
+            <class name="CategoriesFeature.SelectCategoryTest"></class>
+            <class name="CurrenciesFeature.ChangeCurrencyTest"></class>
+            <class name="LoginFeature.ValidLoginTest"></class>
+            <class name="LoginFeature.RestPasswordTest"></class>
+            <class name="PurchaseFeature.AddItemToCompareList"></class>
+            <class name="PurchaseFeature.AddItemToWhiteList"></class>
+            <class name="PurchaseFeature.AddItemToCartTest"></class>
+            <class name="PurchaseFeature.CheckOutItems"></class>
+            <class name="SearchFeature.SearchForProductTest"></class>
         </classes>
     </test>
 </suite>
