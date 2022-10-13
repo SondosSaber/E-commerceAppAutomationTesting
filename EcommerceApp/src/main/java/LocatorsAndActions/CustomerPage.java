@@ -26,6 +26,12 @@ public class CustomerPage {
         return driver.findElement(By.xpath("//span[@class='cart-label']"));
     }
 
+    public WebElement addToCart(WebDriver driver){
+        return driver.findElement(By.xpath("//button[text()='Go to cart']"));
+    }
+
+
+
     //actions
     public void searchForProduct(WebDriver driver, String serachedItem){
         searchBox(driver).sendKeys(serachedItem);
@@ -46,5 +52,9 @@ public class CustomerPage {
 
     public void navigateToShoppingCart(WebDriver driver){
         shoppingCart(driver).click();
+        addToCart(driver).click();
     }
+
+
+
 }

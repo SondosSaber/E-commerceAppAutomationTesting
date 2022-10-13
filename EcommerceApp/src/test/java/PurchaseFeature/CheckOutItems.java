@@ -3,6 +3,7 @@ package PurchaseFeature;
 import LocatorsAndActions.CustomerPage;
 import LocatorsAndActions.HomePage;
 import LocatorsAndActions.LoginPage;
+import LocatorsAndActions.ShoppingCartPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
@@ -12,6 +13,7 @@ public class CheckOutItems {
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
     CustomerPage customerPage = new CustomerPage();
+    ShoppingCartPage shoppingCartPage = new ShoppingCartPage();
 
     @Test
     public void searchForProductTest() throws InterruptedException {
@@ -20,10 +22,12 @@ public class CheckOutItems {
         loginPage.performLogin(driver, "sondossaber2495@gmail.com", "123456");
         Thread.sleep(5000);
         customerPage.searchForProduct(driver, "Nokia");
-        customerPage.addToCartBtn(driver);
+        customerPage.addItemToCart(driver);
         Thread.sleep(6000);
         customerPage.navigateToShoppingCart(driver);
-
+        shoppingCartPage.markChechbox(driver);
+        shoppingCartPage.clickOnCheckoutBtn(driver);
+        Thread.sleep(6000);
 
 
         //assertions
